@@ -1,4 +1,5 @@
 import { SortedIntList } from './hidden/SortedIntListLibrary.js'
+import {IntegerList} from "./IntegerList";
 
 /**
  * InheritanceSortedIntList -- a variant of a SortedIntList that keeps
@@ -10,8 +11,23 @@ import { SortedIntList } from './hidden/SortedIntListLibrary.js'
  *
  */
 
-class InheritanceSortedIntList {
-  // Write your implementation below with API documentation
+class InheritanceSortedIntList extends SortedIntList{
+    private totalAdded:number;
+    constructor() {
+        super();
+        this.totalAdded = 0;
+    }
+    add(num: number): boolean {
+        this.totalAdded++;
+        return super.add(num);
+    }
+    addAll(list: IntegerList): boolean {
+        // this.totalAdded+=list.size();
+        return super.addAll(list);
+    }
+    getTotalAdded(): number {
+        return this.totalAdded;
+    }
 
 }
 
